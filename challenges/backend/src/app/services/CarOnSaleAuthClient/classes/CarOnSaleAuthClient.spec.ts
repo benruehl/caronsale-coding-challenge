@@ -1,4 +1,6 @@
 import "reflect-metadata";
+import chai from "chai";
+import chaiAsPromised from "chai-as-promised";
 import {expect} from "chai";
 import {CarOnSaleAuthClient} from "./CarOnSaleAuthClient";
 import {ICarOnSaleAuthClient} from "../interface/ICarOnSaleAuthClient";
@@ -6,10 +8,11 @@ import {IUserAuth} from "../../../models/IUserAuth";
 
 describe("Client for CarOnSale authorization API", () => {
     describe("Authorize user by email and password", () => {
+        const authBaseUrl = "http://caronsale-backend-service-dev.herokuapp.com/api/v1/";
         let client: ICarOnSaleAuthClient;
 
-        beforeEach(() => {
-            client = new CarOnSaleAuthClient();
+        before(() => {
+            client = new CarOnSaleAuthClient(authBaseUrl);
         });
 
         context("when valid credentials are used", () => {
@@ -41,7 +44,8 @@ describe("Client for CarOnSale authorization API", () => {
             };
 
             it("should throw an error", async () => {
-                expect(await client.authorize(invalidUserCredentials.userMailId, invalidUserCredentials.userPassword)).to.throw();
+                chai.use(chaiAsPromised);
+                await expect(client.authorize(invalidUserCredentials.userMailId, invalidUserCredentials.userPassword)).to.be.rejected;
             });
         });
     });
