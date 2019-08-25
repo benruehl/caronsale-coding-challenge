@@ -1,0 +1,47 @@
+import { IUserDevice } from "./IUserDevice";
+import { IFile } from "./IFile";
+import { ISalesmanActivitySummary } from "./ISalesmanActivitySummary";
+
+export interface ISalesmanUser {
+    biddingIsProhibited: boolean;
+    isPreregisteredAccount: boolean;
+    isConfirmedByInstructor: boolean;
+    confirmedByInstructorAt: string;
+    fullyRegisteredAt: string;
+    deliverMailNotifications: boolean;
+    deliverMobileNotifications: boolean;
+    businessName: string;
+    interestedInSellingVehicles: boolean;
+    lastBehaviorClass: string;
+    averageRating: number;
+    numRatings: number;
+    ratings: any[];
+    activity: ISalesmanActivitySummary;
+    firstName: string;
+    lastName: string;
+    phonenumber: string;
+    iban: string;
+    vatId: string;
+    taxId: string;
+    imageUrl: string;
+    userDevices: IUserDevice[];
+    urlToBusinessRegistrationDocument: string;
+    businessRegistrationDocument: IFile;
+    urlToIdDocument: string;
+    idDocument: IFile;
+    isBlacklisted: boolean;
+    state: number;
+    mailAddress: string;
+    password: string;
+    passwordVersion: number;
+    privileges: string;
+    type: string;
+    createdAt: string;
+    updatedAt: string;
+    id: number;
+    addressLine: string;
+    zipCode: string;
+    city: string;
+    country: string;
+    countryCode: string;
+}
