@@ -33,7 +33,7 @@ export class AuctionMonitorApp {
         this.logger.log(`... Auctions retrieved`);
         this.logger.log(``);
         this.logger.log(`Available auctions: ${auctions.length}`);
-        this.logger.log(`Average Bids: ${averageBids}`);
+        this.logger.log(`Average Bids: ${averageBids.toFixed(2)}`);
         this.logger.log(`Average Percentage: ${(averageProgress * 100).toFixed(2)}%`);
     }
 
