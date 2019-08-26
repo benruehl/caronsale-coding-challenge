@@ -8,7 +8,7 @@ import {IUserAuth} from "../../../models/IUserAuth";
 
 describe("Client for CarOnSale authorization API", () => {
     describe("Authorize user by email and password", () => {
-        const authBaseUrl = "http://caronsale-backend-service-dev.herokuapp.com/api/v1/";
+        const authBaseUrl = "http://caronsale-backend-service-dev.herokuapp.com/api/v1";
         let client: ICarOnSaleAuthClient;
 
         before(() => {
