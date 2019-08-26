@@ -7,6 +7,8 @@ import {ICarOnSaleClient} from "./services/CarOnSaleClient/interface/ICarOnSaleC
 import {CarOnSaleClient} from "./services/CarOnSaleClient/classes/CarOnSaleClient";
 import {ICarOnSaleAuthClient} from "./services/CarOnSaleAuthClient/interface/ICarOnSaleAuthClient";
 import {CarOnSaleAuthClient} from "./services/CarOnSaleAuthClient/classes/CarOnSaleAuthClient";
+import {IAuctionEvaluator} from "./services/AuctionEvaluator/interface/IAuctionEvaluator";
+import {AuctionEvaluator} from "./services/AuctionEvaluator/classes/AuctionEvaluator";
 
 /*
  * Create the DI container.
@@ -21,6 +23,7 @@ const container = new Container({
 container.bind<ILogger>(DependencyIdentifier.LOGGER).to(Logger);
 container.bind<ICarOnSaleClient>(DependencyIdentifier.CAR_ON_SALE_CLIENT).to(CarOnSaleClient);
 container.bind<ICarOnSaleAuthClient>(DependencyIdentifier.CAR_ON_SALE_AUTH_CLIENT).to(CarOnSaleAuthClient);
+container.bind<IAuctionEvaluator>(DependencyIdentifier.AUCTION_EVALUATOR).to(AuctionEvaluator);
 container.bind<string>(DependencyIdentifier.CAR_ON_SALE_BASE_URL).toConstantValue("http://caronsale-backend-service-dev.herokuapp.com/api/v1");
 
 
